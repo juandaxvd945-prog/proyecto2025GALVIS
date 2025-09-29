@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Preguntas</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- SweetAlert2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<audio id="musicaHardcore" src="" loop preload="auto"></audio>
+<body>
+
+    <div class="container">
+        <h1>TRIVIA ESCOLAR</h1>
+        
+        <!-- Menú principal -->
+        <div id="menu">
+            <h3>Selecciona un tema:</h3>
+           <button onclick="seleccionarTema('sociales')">🌎 Sociales</button>
+            <button onclick="seleccionarTema('matematicas')">🧮Matemáticas</button>
+            <button onclick="seleccionarTema('ingles')">🇬🇧Inglés</button>
+            <button onclick="iniciarModoHardcore()">🔥 Modo Hardcore</button>
+        </div>
+
+        <!-- Selección de niveles -->
+        <div id="niveles" class="hidden">
+            <h3>Selecciona la dificultad:</h3>
+            <button onclick="seleccionarNivel('facil')">Fácil (1 punto)</button>
+            <button onclick="seleccionarNivel('medio')">Medio (2 puntos)</button>
+            <button onclick="seleccionarNivel('dificil')">Difícil (3 puntos)</button>
+            <button onclick="seleccionarNivel('experto')">Experto (5 puntos)</button>
+        </div>
+
+        <!-- Juego en curso -->
+        <div id="juego" class="hidden">
+            <h3 id="pregunta"></h3>
+            <div id="opciones"></div>
+            <button id="siguiente" class="hidden" onclick="siguientePregunta()">Siguiente</button>
+            <h3 id="temporizador" style="color: #ff0; margin-bottom: 10px;">⏱️ Tiempo: 15s</h3>
+            <div id="vidasHardcore" class="vidas">❤️❤️❤️❤️❤️</div>
+        </div>
+
+        <!-- Botones extra -->
+        <div>
+            <button id="botonTienda" onclick="mostrarTienda()" class="llamativo">🛒 Abrir Tienda</button>
+        </div>
+        <div>
+            <button id="btn-salir" onclick="salir()" class="llamativo">SALIR</button>
+        </div>
+
+        <!-- Tienda -->
+        <div id="tienda" class="hidden tienda-box">
+            <h3>🛒 Tienda de Ayudas</h3>
+            <button onclick="comprarAyuda('50-50')">50/50 (1 punto)</button>
+            <button onclick="comprarAyuda('pista')">Pista (2 puntos)</button>
+            <button onclick="comprarAyuda('cambiar')">Cambiar Pregunta (3 puntos)</button>
+            <button onclick="comprarAyuda('auto')">Respuesta Automática (5 puntos)</button>
+            <button onclick="comprarAyuda('escudo')">🛡️ Escudo (4 puntos)</button>
+            <button onclick="comprarAyuda('congelar')">❄️ Congelar tiempo (3 puntos)</button>
+            <button onclick="comprarAyuda('visual')">🔍 Ayuda visual (2 puntos)</button>
+        </div>  
+
+        <!-- Resultado final -->
+        <div id="resultado" class="hidden">
+            <h3>Puntaje final: <span id="puntaje"></span></h3>
+            <button onclick="reiniciarJuego()">Jugar de nuevo</button>
+            <button onclick="mostrarRetroalimentacion()">Ver retroalimentación</button>
+        </div>
+
+        <!-- Retroalimentación -->
+        <div id="retroalimentacion" class="hidden">
+            <h3>📊 Retroalimentación</h3>
+            <div id="listaRespuestas"></div>
+            <button onclick="volverResultado()">Volver</button>
+        </div>
+    </div>
+
+    <!-- HUD de puntaje -->
+    <div id="puntajeActual" class="hud">
+        Puntos: <span id="puntajeHUD">0</span>
+    </div>
+
+    <!-- Sonidos -->
+    <audio id="sonidoLevelUp" src="https://www.myinstants.com/media/sounds/level-up.mp3"></audio>
+    <audio id="sonidoError" src="https://www.myinstants.com/media/sounds/windows-error.mp3" preload="auto"></audio>
+
+    <!-- Script del juego -->
+    <script src="javascript.js"></script>
+</body>
+</html>

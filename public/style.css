@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
+body {
+  font-family: "Quicksand", sans-serif;
+  background: linear-gradient(135deg, #8bb7e6);
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 800px;
+  margin: 60px auto;
+  background: #ffffffd9;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.8s ease-in-out;
+}
+h1{
+  background-color: #3B82F6;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: fadeInDown 0.8s ease-in-out;
+  border-radius: 20px;
+}
+h2 {
+  /*background-color: #3B82F6;*/
+  color: #adf7c8;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: fadeInDown 0.8s ease-in-out;
+  border-radius: 20px;
+}
+h3 {
+  background-color: #3B82F6;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: fadeInDown 0.8s ease-in-out;
+  border-radius: 20px;
+}
+button {
+  font-family: "Quicksand", sans-serif;
+  margin: 10px 5px;
+  padding: 15px 25px;
+  border: none;
+  background: #22C55E;
+  color: #ffffff;
+  font-size: 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+button:hover {
+  background: #6EE7B7;
+  transform: scale(1.05);
+}
+#menu button,
+#niveles button {
+  display: block;
+  width: 80%;
+  margin: 10px auto;
+}
+.opcion {
+  display: block;
+  width: 100%;
+  margin: 10px auto;
+  padding: 15px;
+  font-size: 16px;
+  background: #b3e0ff;
+  color: #333;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+.opcion:hover {
+  background: #d6f0ff;
+}
+.hidden {
+  display: none;
+}
+#resultado h2 {
+  font-size: 22px;
+  color: #6EE7B7;
+  text-align: center;
+}
+.hud {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #fef3c7;
+  color: #222;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+.bloqueado {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.vidas {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.resultado-final {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: #fff0f5;
+  color: #333;
+  padding: 40px;
+  border: 3px solid #fcb;
+  text-align: center;
+  border-radius: 12px;
+  z-index: 1000;
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+}
+.resultado-final.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+#botonTienda {
+  display: none; /* escondido al inicio */
+}
+#botonTienda.llamativo {
+  background:#F59E0B;
+  color: #ffffff;
+  font-size: 20px;
+  animation: pulso 1s infinite alternate;
+  margin: 20px auto;
+
+}
+    .btn-salir { background: #F87171; color: white; }  
+
+#btn-salir.llamativo {
+  background:#F87171;
+  color: #ffffff;
+  font-size: 20px;
+  animation: pulso 1s infinite alternate;
+  margin: 20px auto;
+  display: block;
+    }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pulso {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 5px #ffeb3b;
+  }
+  100% {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #ffeb3b;
+  }
+}
+.tienda-box {
+  background: #fffdf7;
+  padding: 20px;
+  border: 3px solid #ffd9ec;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #ffe5f0;
+  animation: fadeIn 0.4s ease-in-out;
+  margin-top: 15px;
+}
+#retroalimentacion {
+  background: #f9fafb;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  margin-top: 20px;
+}
+
+#retroalimentacion p {
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
