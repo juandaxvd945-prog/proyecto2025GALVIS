@@ -38,7 +38,7 @@ app.post("/api/register", async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const result = await pool.query(
-      "INSERT INTO miweb (nombre, email, password) VALUES ($1, $2, $3) RETURNING email, password",
+      "INSERT INTO usuarios (nombre, email, password) VALUES ($1, $2, $3) RETURNING nombre, email, password",
       [nombre, email, hashedPassword]
     );
 
