@@ -11,11 +11,10 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 const pool = new Pool({
-  user: "postgres",     
-  host: "localhost",
-  database: "miweb", 
-  password: "1234",     
-  port: 5432
+  connectionString: "postgresql://neondb_owner:npg_u9FUfr3GlQhO@ep-tiny-meadow-ad5vso16-pooler.c-2.us-east-1.aws.neon.tech/miweb?sslmode=require&channel_binding=require",
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 // Clave secreta para los tokens
@@ -36,7 +35,7 @@ app.post("/register", async (req, res) => {
 
     // Insertar en la BD
     const result = await pool.query(
-      "INSERT INTO usuarios (nombre, email, password) VALUES ($1, $2, $3) RETURNING id, nombre, email",
+      "INSERT INTO usuarios (nombre, email, password) VALUES ($1, $2, $3) RETURNING nombre, email, password",
       [nombre, email, hashedPassword]
     );
 
