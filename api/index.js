@@ -14,7 +14,7 @@ const { Pool } = pkg;
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "../public"))); // sirve archivos de /public
+app.use(express.static(path.join(__dirname, "../public")));
 
 // 🔹 Conexión a PostgreSQL (directa, sin variables de entorno)
 const pool = new Pool({

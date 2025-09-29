@@ -292,20 +292,22 @@ function verificarRespuesta(respuesta) {
             }
         });
         return;
-        rachaCorrectas++;
-        if (esHardcore && rachaCorrectas >= 5 && vidasRestantes < maxVidas) {
-            vidasRestantes++;
-            rachaCorrectas = 0;
-            actualizarVidas();
-            Swal.fire({
-                title: "💖 ¡Vida extra!",
-                text: "Lograste una racha de 5 respuestas correctas.",
-                icon: "success",
-                confirmButtonColor: "#00ffae"
-            });
-        } else if (!esHardcore) {
-            rachaCorrectas = 0;
-        }
+    }
+
+    // Respuesta correcta
+    rachaCorrectas++;
+    if (esHardcore && rachaCorrectas >= 5 && vidasRestantes < maxVidas) {
+        vidasRestantes++;
+        rachaCorrectas = 0;
+        actualizarVidas();
+        Swal.fire({
+            title: "💖 ¡Vida extra!",
+            text: "Lograste una racha de 5 respuestas correctas.",
+            icon: "success",
+            confirmButtonColor: "#00ffae"
+        });
+    } else if (!esHardcore) {
+        rachaCorrectas = 0;
     }
 
     puntajeTotal += preguntaActual.puntos;
@@ -478,7 +480,7 @@ function revisarDesbloqueos() {
 }
   function salir() {
     alert("Gracias por jugar. ¡Hasta pronto!");
-    window.location.href = "C:/Users/usuario/Desktop/miweb-node/public/index.html"; 
+    window.location.href = "index.html"; 
   }
 function mostrarTienda() {
     const tienda = document.getElementById("tienda");

@@ -181,7 +181,7 @@ input::placeholder {
     e.preventDefault();
     errorBox.style.display = "none";
 
-    const res = await fetch("http://localhost:3000/register", {
+    const res = await fetch("/api/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -207,7 +207,7 @@ input::placeholder {
     e.preventDefault();
     errorBox.style.display = "none";
 
-    const res = await fetch("http://localhost:3000/login", {
+    const res = await fetch("/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
