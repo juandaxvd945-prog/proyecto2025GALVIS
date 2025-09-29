@@ -38,7 +38,7 @@ app.post("/api/register", async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const result = await pool.query(
-      "INSERT INTO usuarios (nombre, email, password) VALUES ($1, $2, $3) RETURNING id, nombre, email",
+      "INSERT INTO miweb (nombre, email, password) VALUES ($1, $2, $3) RETURNING email, password",
       [nombre, email, hashedPassword]
     );
 
@@ -66,7 +66,8 @@ app.post("/api/login", async (req, res) => {
       return res.status(400).json({ error: "Contraseña incorrecta" });
     }
 
-    const token = jwt.sign({ id: user.id, email: user.email }, SECRET, { expiresIn: "1h" });
+   const token = jwt.sign({ email: user.email, nombre: user.nombre }, SECRET, { expiresIn: "1h" });
+
 
     res.json({ message: "Login exitoso", token });
   } catch (err) {
