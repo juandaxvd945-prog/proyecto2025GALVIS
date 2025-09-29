@@ -1,9 +1,16 @@
-const express = require("express");
-const cors = require("cors");
-const { Pool } = require("pg");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const path = require("path");
+import express from "express";
+import cors from "cors";
+import pkg from "pg";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const { Pool } = pkg;
+
 
 const app = express();
 app.use(cors());
@@ -74,9 +81,9 @@ app.post("/login", async (req, res) => {
 });
 
 // Iniciar servidor
-app.listen(3000, () => {
-  console.log("Servidor corriendo en http://localhost:3000");
-});
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log('Listening on', PORT));
+
 // Ruta protegida: perfil
 app.get("/perfil", (req, res) => {
   const auth = req.headers["authorization"];
