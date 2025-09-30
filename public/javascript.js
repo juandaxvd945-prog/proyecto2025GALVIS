@@ -831,7 +831,7 @@ function volverResultado() {
 
 // Salir del juego: vuelve al menú principal
 function salir() {
-    window.location.href = "/Users/usuario/Desktop/miweb-node"; 
+    window.location.href = "https://proyecto2025-galvis.vercel.app/"; 
 }
 
 // Retroceder desde niveles a menú
