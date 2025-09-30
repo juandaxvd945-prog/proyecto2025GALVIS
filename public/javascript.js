@@ -736,11 +736,11 @@ document.getElementById("botonTienda").classList.add("hidden");
 /* --- Desbloqueos --- */
 function revisarDesbloqueos() {
     let desbloqueo = null;
-    if (puntajeTotal >= 1 && !nivelesDesbloqueados.experto) {
+    if (puntajeTotal >= 7 && !nivelesDesbloqueados.experto) {
         nivelesDesbloqueados.experto = true; desbloqueo = "Experto";
-    } else if (puntajeTotal >= 1 && !nivelesDesbloqueados.dificil) {
+    } else if (puntajeTotal >= 5 && !nivelesDesbloqueados.dificil) {
         nivelesDesbloqueados.dificil = true; desbloqueo = "Difícil";
-    } else if (puntajeTotal >= 1 && !nivelesDesbloqueados.medio) {
+    } else if (puntajeTotal >= 3 && !nivelesDesbloqueados.medio) {
         nivelesDesbloqueados.medio = true; desbloqueo = "Medio";
     }
     localStorage.setItem("nivelesDesbloqueados", JSON.stringify(nivelesDesbloqueados));
