@@ -113,14 +113,14 @@ button:hover {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
-/* #botonTienda.llamativo {
+ #botonTienda.llamativo {
   background:#F59E0B;
   color: #ffffff;
   font-size: 20px;
   animation: pulso 1s infinite alternate;
   margin: 20px auto;
-  display: block;
-} */
+  /* display: block; */
+} 
     .btn-salir { background: #F87171; color: white; }  
 
 #btn-salir.llamativo {
