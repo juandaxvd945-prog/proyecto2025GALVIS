@@ -736,11 +736,11 @@ document.getElementById("botonTienda").classList.add("hidden");
 /* --- Desbloqueos --- */
 function revisarDesbloqueos() {
     let desbloqueo = null;
-    if (puntajeTotal >= 20 && !nivelesDesbloqueados.experto) {
+    if (puntajeTotal >= 1 && !nivelesDesbloqueados.experto) {
         nivelesDesbloqueados.experto = true; desbloqueo = "Experto";
-    } else if (puntajeTotal >= 12 && !nivelesDesbloqueados.dificil) {
+    } else if (puntajeTotal >= 1 && !nivelesDesbloqueados.dificil) {
         nivelesDesbloqueados.dificil = true; desbloqueo = "Difícil";
-    } else if (puntajeTotal >= 5 && !nivelesDesbloqueados.medio) {
+    } else if (puntajeTotal >= 1 && !nivelesDesbloqueados.medio) {
         nivelesDesbloqueados.medio = true; desbloqueo = "Medio";
     }
     localStorage.setItem("nivelesDesbloqueados", JSON.stringify(nivelesDesbloqueados));
@@ -831,7 +831,7 @@ function volverResultado() {
 
 // Salir del juego: vuelve al menú principal
 function salir() {
-    window.location.href = "https://proyecto2025-galvis.vercel.app/"; 
+    window.location.href = "https://proyecto2025-galvis.vercel.app"; 
 }
 
 // Retroceder desde niveles a menú
