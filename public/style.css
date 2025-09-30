@@ -15,23 +15,8 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   animation: fadeIn 0.8s ease-in-out;
 }
-h1{
-  background-color: #3B82F6;
-  color: #ffffff;
-  text-align: center;
-  margin-bottom: 20px;
-  animation: fadeInDown 0.8s ease-in-out;
-  border-radius: 20px;
-}
+h1,
 h2 {
-  /*background-color: #3B82F6;*/
-  color: #adf7c8;
-  text-align: center;
-  margin-bottom: 20px;
-  animation: fadeInDown 0.8s ease-in-out;
-  border-radius: 20px;
-}
-h3 {
   background-color: #3B82F6;
   color: #ffffff;
   text-align: center;
@@ -128,16 +113,13 @@ button:hover {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
-#botonTienda {
-  display: none; /* escondido al inicio */
-}
 #botonTienda.llamativo {
   background:#F59E0B;
   color: #ffffff;
   font-size: 20px;
   animation: pulso 1s infinite alternate;
   margin: 20px auto;
-
+  display: block;
 }
     .btn-salir { background: #F87171; color: white; }  
 
