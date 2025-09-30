@@ -119,7 +119,7 @@ button:hover {
   font-size: 20px;
   animation: pulso 1s infinite alternate;
   margin: 20px auto;
-  /* display: block; */
+  display: center;
 } 
     .btn-salir { background: #F87171; color: white; }  
 
