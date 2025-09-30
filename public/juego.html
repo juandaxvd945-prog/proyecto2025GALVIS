@@ -32,14 +32,18 @@
             <button onclick="seleccionarNivel('experto')">Experto (5 puntos)</button>
         </div>
 
-        <!-- Juego en curso -->
-        <div id="juego" class="hidden">
-            <h2 id="pregunta"></h2>
-            <div id="opciones"></div>
-            <button id="siguiente" class="hidden" onclick="siguientePregunta()">Siguiente</button>
-            <h3 id="temporizador" style="color: #ff0; margin-bottom: 10px;">⏱️ Tiempo: 15s</h3>
-            <div id="vidasHardcore" class="vidas">❤️❤️❤️❤️❤️</div>
-        </div>
+       <!-- Juego en curso -->
+<div id="juego" class="hidden">
+    <h2 id="pregunta"></h2>
+    <div id="opciones"></div>
+    <button id="siguiente" class="hidden" onclick="siguientePregunta()">Siguiente</button>
+    <h3 id="temporizador" style="color: #ff0; margin-bottom: 10px;">⏱️ Tiempo: 15s</h3>
+    <div id="vidasHardcore" class="vidas">❤️❤️❤️❤️❤️</div>
+
+    <!-- 👇 Botón de tienda, movido aquí -->
+    <button id="botonTienda" onclick="mostrarTienda()" class="hidden">🛒 Abrir Tienda</button>
+</div>
+
 
         <!-- Botones extra -->
         <div>
@@ -54,17 +58,18 @@
             <button id="btn-salir" onclick="salir()" class="llamativo">SALIR</button>
         </div>
 
-        <!-- Tienda -->
-        <div id="tienda" class="hidden tienda-box">
-            <h2>🛒 Tienda de Ayudas</h2>
-            <button onclick="comprarAyuda('50-50')">50/50 (1 punto)</button>
-            <button onclick="comprarAyuda('pista')">Pista (2 puntos)</button>
-            <button onclick="comprarAyuda('cambiar')">Cambiar Pregunta (3 puntos)</button>
-            <button onclick="comprarAyuda('auto')">Respuesta Automática (5 puntos)</button>
-            <button onclick="comprarAyuda('escudo')">🛡️ Escudo (4 puntos)</button>
-            <button onclick="comprarAyuda('congelar')">❄️ Congelar tiempo (3 puntos)</button>
-            <button onclick="comprarAyuda('visual')">🔍 Ayuda visual (2 puntos)</button>
-        </div>  
+       <!-- Tienda -->
+<div id="tienda" class="hidden tienda-box">
+    <h2>🛒 Tienda de Ayudas</h2>
+    <button onclick="comprarAyuda('50-50')">50/50 (2 puntos)</button>
+    <button onclick="comprarAyuda('pista')">Pista (2 puntos)</button>
+    <button onclick="comprarAyuda('cambiar')">Cambiar Pregunta (3 puntos)</button>
+    <button onclick="comprarAyuda('auto')">Respuesta Automática (6 puntos)</button>
+    <button onclick="comprarAyuda('escudo')">🛡️ Escudo (4 puntos)</button>
+    <button onclick="comprarAyuda('congelar')">❄️ Congelar tiempo (3 puntos)</button>
+    <button onclick="comprarAyuda('visual')">🔍 Ayuda visual (1 punto)</button>
+</div>  
+
 
         <!-- Resultado final -->
         <div id="resultado" class="hidden">

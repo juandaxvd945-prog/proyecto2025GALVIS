@@ -113,24 +113,17 @@ button:hover {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
-#botonTienda.llamativo {
-  background:#F59E0B;
-  color: #ffffff;
-  font-size: 20px;
-  animation: pulso 1s infinite alternate;
-  margin: 20px auto;
-  display: block;
-}
+
     .btn-salir { background: #F87171; color: white; }  
 
-/* #btn-salir.llamativo {
+#btn-salir.llamativo {
   background:#F87171;
   color: #ffffff;
   font-size: 20px;
   animation: pulso 1s infinite alternate;
   margin: 20px auto;
   display: block;
-    } */
+    }
 
 @keyframes fadeIn {
   from {

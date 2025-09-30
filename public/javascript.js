@@ -513,9 +513,10 @@ function seleccionarNivel(nivel) {
     preguntasRestantes = [...preguntas[temaSeleccionado][nivelSeleccionado]];
     document.getElementById("niveles").classList.add("hidden");
     document.getElementById("juego").classList.remove("hidden");
-    document.getElementById("botonTienda").classList.remove("hidden");
+    document.getElementById("botonTienda").classList.add("hidden"); // 👈 se mantiene oculta
     document.getElementById("temporizador").style.display = "none";
     document.getElementById("vidasHardcore").style.display = "none";
+document.getElementById("botonTienda").classList.remove("hidden");
     mostrarPregunta();
 }
 
@@ -527,14 +528,15 @@ function iniciarModoHardcore() {
     preguntasRestantes = generarModoHardcore();
     document.getElementById("menu").classList.add("hidden");
     document.getElementById("juego").classList.remove("hidden");
-   document.getElementById("botonTienda").classList.remove("hidden");
+document.getElementById("botonTienda").classList.add("hidden"); // 👈 se mantiene oculta
+
 
     const musica = document.getElementById("musicaHardcore");
     if (musica) {
         musica.currentTime = 0;
         musica.play().catch(() => {});
     }
-
+document.getElementById("botonTienda").classList.remove("hidden");
     mostrarPreguntaConTemporizador();
 }
 
@@ -755,18 +757,36 @@ function mostrarTienda() {
 
 function comprarAyuda(ayuda) {
     let puntosRef = esHardcore ? puntajeHardcore : puntajeTotal;
-    let costo = { "50-50":1, "pista":2, "cambiar":3, "auto":5, "escudo":4, "congelar":3, "visual":2 }[ayuda];
+    let costos = { 
+        "50-50": 2, 
+        "pista": 2, 
+        "cambiar": 3, 
+        "auto": 6, 
+        "escudo": 4, 
+        "congelar": 3, 
+        "visual": 1 
+    };
+    let costo = costos[ayuda];
 
     if (puntosRef < costo) {
-        return Swal.fire("Puntos insuficientes", `Necesitas al menos ${costo} puntos.`, "warning");
+        return Swal.fire("⚠️ Puntos insuficientes", `Necesitas al menos ${costo} puntos.`, "warning");
     }
 
-    if (esHardcore) puntajeHardcore -= costo; else puntajeTotal -= costo;
+    // Descontar puntos
+    if (esHardcore) puntajeHardcore -= costo; 
+    else puntajeTotal -= costo;
     actualizarHUD();
 
-    if (ayuda === "escudo") tieneEscudo = true;
-    if (ayuda === "auto") verificarRespuesta(preguntaActual.correcta);
-    if (ayuda === "pista") Swal.fire("💡 Pista", `La respuesta correcta comienza con: "${preguntaActual.correcta.charAt(0)}"`, "info");
+    // Aplicar efecto de la ayuda
+    if (ayuda === "escudo") {
+        tieneEscudo = true;
+    }
+    if (ayuda === "auto") {
+        verificarRespuesta(preguntaActual.correcta);
+    }
+    if (ayuda === "pista") {
+        Swal.fire("💡 Pista", `La respuesta correcta comienza con: "${preguntaActual.correcta.charAt(0)}"`, "info");
+    }
     if (ayuda === "50-50") {
         const opciones = document.querySelectorAll(".opcion");
         let incorrectas = Array.from(opciones).filter(b => b.innerText !== preguntaActual.correcta);
@@ -778,9 +798,18 @@ function comprarAyuda(ayuda) {
         let b = incorrectas[Math.floor(Math.random()*incorrectas.length)];
         if (b) { b.style.opacity=0.3; b.style.pointerEvents="none"; }
     }
-    if (ayuda === "cambiar") mostrarPreguntaConTemporizador();
-    if (ayuda === "congelar") { clearInterval(cuentaRegresiva); setTimeout(()=>mostrarPreguntaConTemporizador(), 5000); }
+    if (ayuda === "cambiar") {
+        mostrarPreguntaConTemporizador();
+    }
+    if (ayuda === "congelar") {
+        clearInterval(cuentaRegresiva);
+        setTimeout(()=>mostrarPreguntaConTemporizador(), 5000);
+    }
+
+    // ✅ Confirmación de uso
+    Swal.fire("✅ Ayuda usada", `Has utilizado la ayuda: ${ayuda.toUpperCase()}.`, "success");
 }
+
 
 function mostrarRetroalimentacion() {
     document.getElementById("resultado").classList.add("hidden");
