@@ -831,7 +831,7 @@ function volverResultado() {
 
 // Salir del juego: vuelve al menú principal
 function salir() {
-    reiniciarJuego(); // reutilizamos esta función para limpiar todo
+    window.location.href = "/Users/usuario/Desktop/miweb-node"; 
 }
 
 // Retroceder desde niveles a menú
